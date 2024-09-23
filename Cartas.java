@@ -1,6 +1,6 @@
 package ProjetoProgramacao;
 
-public class Cartas {
+abstract class Cartas {
 
     public String nomes;
     public int custoMana;
@@ -9,4 +9,7 @@ public class Cartas {
         this.nomes = nomes;
         this.custoMana = custoMana;
     }
+    
+    public abstract void usar(Jogador jogadorAtivo);
+
 }
