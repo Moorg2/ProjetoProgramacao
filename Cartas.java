@@ -10,6 +10,5 @@ abstract class Cartas {
         this.custoMana = custoMana;
     }
     
-    public abstract void usar(Jogador jogadorAtivo);
 
 }

@@ -9,17 +9,17 @@ abstract class Jogador {
     int mana;
     public int turno;
 
-    List<Carta> deck;
-    List<Carta> mao;
-    List<Carta> cemiterio;
+    ArrayList<Cartas> deck;
+    ArrayList<Cartas> mao;
+    ArrayList<Cartas> cemiterio;
     public Jogador(String nome) {
         this.nome = nome;
         this.vida = 200; // Vida inicial
         this.mana = 3; // Mana inicial
         this.turno = 0;
-        this.deck = new ArrayList<>();
-        this.mao = new ArrayList<>();
-        this.cemiterio = new ArrayList<>();
+        this.deck = new ArrayList<Cartas>();
+        this.deck = new ArrayList<Cartas>();
+        this.cemiterio= new ArrayList<Cartas>();
     }
 
     public int danoVida(int danoRecebido) {

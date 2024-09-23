@@ -6,6 +6,14 @@ import java.util.Random;
 public class JogoDeCartas {
 
     
+    public void mudarJogador(){
+        if (JogadorAtual == jogador1){
+            JogadorAtual = jogador2;
+        }else {
+            JogadorAtual = jogador1;
+        }
+        JogadorAtual = null;
+    }
 
     public static void main(String[] args) {
         
