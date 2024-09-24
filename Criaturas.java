@@ -31,6 +31,22 @@ abstract class Criaturas extends Cartas {
     public int getResist() {
         return this.resist;
     }
+
+    public String GetHabilidade(){
+        return this.habilidadeEspecial;
+    }
+
+    public void aplicarHabilidade(){
+        if (GetHabilidade().equals(/* nome Habilidade base 1 */)){
+            /*aplica Habilidade 1 */
+        } else if (GetHabilidade().equals(/*nome Habilidade base 2 */)){
+            /*aplica Habilidade 2 */
+        } else if (GetHabilidade().equals(/*nome Habilidade base 3 */)){
+             /*aplica Habilidade 2 */
+        }
+
+        }
+   
     @Override
     public void usar(Jogador jogadorAtivo) {
         // Implementação para colocar a criatura no campo

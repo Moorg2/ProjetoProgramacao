@@ -10,5 +10,4 @@ abstract class Cartas {
         this.custoMana = custoMana;
     }
     
-
 }

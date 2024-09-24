@@ -14,7 +14,18 @@ public class Feitico extends Cartas {
         System.out.println(jogadorAtivo.nome + " lançou o feitiço: " + nome);
     }
 
-    public void aplicarEfeito(String efeito){
+    public GetEfeito(){
+        return this.efeito;
+    }
+
+    public void aplicarEfeito(){
+        if (GetEfeito().equals(/* nome efeito base 1 */)){
+            /*aplica efeito 1 */
+        } else if (GetEfeito().equals(/*nome efeito base 2 */)){
+            /*aplica efeito 2 */
+        } else if (GetEfeito().equals(/*nome efeito base 3 */)){
+             /*aplica efeito 2 */
+        }
 
         }
 }    
