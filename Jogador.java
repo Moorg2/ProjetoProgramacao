@@ -18,7 +18,7 @@ abstract class Jogador {
         this.mana = 3; // Mana inicial
         this.turno = 0;
         this.deck = new ArrayList<Cartas>();
-        this.deck = new ArrayList<Cartas>();
+        this.mao = new ArrayList<Cartas>();
         this.cemiterio= new ArrayList<Cartas>();
     }
 
@@ -48,14 +48,12 @@ abstract class Jogador {
     public String getNome(){
         return this.nome;
     }
-
     public void setVida(int vida){
         this.vida = vida;
     }
     public int getVida(){
         return this.vida;
     }
-
     public void setMana(int mana){
         this.mana = mana;
     }

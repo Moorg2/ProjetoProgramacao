@@ -24,7 +24,7 @@ abstract class Criaturas extends Cartas {
     public int getDano() {
         return dano;
     }
-    public void setResist(int vida){
+    public void setResist(int resist){
         this.resist = resist;
     }
 
@@ -32,16 +32,16 @@ abstract class Criaturas extends Cartas {
         return this.resist;
     }
 
-    public String GetHabilidade(){
+    public String getHabilidade(){
         return this.habilidadeEspecial;
     }
 
     public void aplicarHabilidade(){
-        if (GetHabilidade().equals(/* nome Habilidade base 1 */)){
+        if (getHabilidade().equals(/* nome Habilidade base 1 */)){
             /*aplica Habilidade 1 */
-        } else if (GetHabilidade().equals(/*nome Habilidade base 2 */)){
+        } else if (getHabilidade().equals(/*nome Habilidade base 2 */)){
             /*aplica Habilidade 2 */
-        } else if (GetHabilidade().equals(/*nome Habilidade base 3 */)){
+        } else if (getHabilidade().equals(/*nome Habilidade base 3 */)){
              /*aplica Habilidade 2 */
         }
 
