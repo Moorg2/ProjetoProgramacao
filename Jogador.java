@@ -5,9 +5,10 @@ import java.util.List;
 
 abstract class Jogador {
     String nome;
-    int vida;
-    int mana;
-    public int turno;
+    public int vida;
+    public int mana;
+    public int manaInicial;
+    public int turno =0;
 
     ArrayList<Cartas> deck;
     ArrayList<Cartas> mao;
@@ -30,37 +31,21 @@ abstract class Jogador {
             return vida - danoRecebido; // Vida restante
         }
     }
-
+    public int getTurno(){
+        return this.turno;
+    }
 
     // Método para ganhar mana no início do turno
     public void ganharMana() {
         if (turno == 0) {
-            mana = 3;
+            this.manaInicial = 3;
         } else {
-            mana += 2;
+            this.mana= this.manaInicial + 1;
         }
-        if (mana > 10) {
-            mana = 10;
+        if (this.mana > 10) {
+            this.mana = 10;
         }
-        turno++; 
-    }
-
-    public String getNome(){
-        return this.nome;
-    }
-    public void setVida(int vida){
-        this.vida = vida;
-    }
-    public int getVida(){
-        return this.vida;
-    }
-    public void setMana(int mana){
-        this.mana = mana;
-    }
-    public int getMana(){
-        return this.mana;
-    }
-        
+    }        
     public void comprarCarta() {
             if (!deck.isEmpty()) {
                 Carta carta = deck.remove(0);

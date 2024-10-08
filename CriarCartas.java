@@ -4,7 +4,7 @@ package ProjetoProgramacao;
 public class CriarCartas {
 // Criaturas
 public static Criatura criarCriatura(String nome) {
-    switch (nome) {
+    switch (this.nome) {
         case "Pikachu":
             return new Criatura("Pikachu", 3, 10, 6, "Rapidez");
         case "Charizard":
@@ -71,7 +71,7 @@ public static Criatura criarCriatura(String nome) {
 }
 // Feitiços
 public static Feitico criarFeitico(String nome) {
-    switch (nome) {
+    switch (this.nome) {
         case "Raio":
             return new Feitico("Raio", 2, "Causa 5 de dano a uma criatura ou jogador.");
         case "Cura":
@@ -138,7 +138,7 @@ public static Feitico criarFeitico(String nome) {
 }
 // Encantamentos
 public static Encantamento criarEncantamento(String nome) {
-    switch (nome) {
+    switch (this.nome) {
         case "Buff de Ataque":
             return new Encantamento("Buff de Ataque", 4, "Aumenta o poder de criaturas em 2.");
         case "Diminuição de Defesa":

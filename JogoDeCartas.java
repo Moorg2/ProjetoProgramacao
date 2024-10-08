@@ -16,7 +16,21 @@ public class JogoDeCartas {
     public void iniciar() {
         comprarMãoInicial();
         definirJogadorInicial();
-
+        turnos();
+    }
+    public void turnos(){
+        while (true) {
+            if (getTurno() == 0){
+                comprarCarta();
+                ganharMana();
+                /*Um metodo para jogar cartas */
+                /*Um metodo para concretizar a interação do jogar com as cartas no campo, poder atacar e ativar as habilidades */
+                mudarJogador();
+        }else{
+                comprarCarta();
+                ganharMana();
+                mudarJogador();
+        }
     }
 
     public void definirJogadorInicial(Jogador jogador1, Jogador jogador2) {
@@ -27,7 +41,9 @@ public class JogoDeCartas {
             jogadorAtual = jogador2;
         }
     }
-    
+    public void comprarCarta(){
+        jogadorAtual.comprarCarta();
+    }
     public void comprarMãoInicial() {
         for (int i = 0; i < 5; i++) {
             jogador1.comprarCarta();
@@ -42,6 +58,7 @@ public class JogoDeCartas {
             JogadorAtual = jogador1;
         }
         JogadorAtual = null;
+        this.turno += 1;
     }
 
     public static void main(String[] args) {
@@ -49,8 +66,8 @@ public class JogoDeCartas {
         Jogador jogador1 = new Jogador("Jogador 1");
         Jogador jogador2 = new Jogador("Jogador 2");
 
-        Jogo jogo = new Jogo(jogador1, jogador2);
+        JogoDeCartas jogo = new JogoDeCartas(jogador1, jogador2);
         jogo.iniciar();
     }
-
     }
+}
