@@ -2,13 +2,13 @@ package ProjetoProgramacao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 abstract class Jogador {
     String nome;
     public int vida;
     public int mana;
-    public int manaInicial;
-    public int turno =0;
+    public int turno = 0;
 
     ArrayList<Cartas> deck;
     ArrayList<Cartas> mao;
@@ -16,20 +16,43 @@ abstract class Jogador {
     public Jogador(String nome) {
         this.nome = nome;
         this.vida = 200; // Vida inicial
-        this.mana = 3; // Mana inicial
         this.turno = 0;
         this.deck = new ArrayList<Cartas>();
         this.mao = new ArrayList<Cartas>();
         this.cemiterio= new ArrayList<Cartas>();
     }
+    
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+    
+    public int getVida() {
+        return this.vida;
+    }
 
-    public int danoVida(int danoRecebido) {
+    
+    public int danoVida(int dano, int vida) {
         // Se o dano recebido for maior que a resistência, a criatura é destruída
-        if (danoRecebido >= vida) {
+        if (danoRecebidoJogador() >= vida) {
             return 0; // tem que fazer o jogo acabar
         } else {
-            return vida - danoRecebido; // Vida restante
+            return this.vida = vida - dano // Vida restante
         }
+    }
+    
+    public int danoRecebidoJogador(int getDanoCriatura(), int vida) { //Criatura -> jogador//
+    	
+    	return danoRecebidoJogador = this.vida - getDanoCriatura()
+    		
+    }
+    
+    
+    
+    //public int alvoEscolher() { //O Alvo a sofrer dano será escolhido dependendo se tiver cartas em jogo ou não, 
+    							//se não tiver, chamar o metodo danoRecebidoJogador(); se tiver, usar o metodo danoRecebidoCriatura();
+    	//if() {
+    		//}
+    	
     }
     public int getTurno(){
         return this.turno;
@@ -37,15 +60,25 @@ abstract class Jogador {
 
     // Método para ganhar mana no início do turno
     public void ganharMana() {
-        if (turno == 0) {
-            this.manaInicial = 3;
+        if (getTurno() == 0) {
+            mana = 3;
         } else {
-            this.mana= this.manaInicial + 1;
+            mana = this.mana + getTurno();
         }
-        if (this.mana > 10) {
+        if (mana > 10) {
             this.mana = 10;
         }
-    }        
+    }
+
+    public void definirJogadorInicial(Jogador jogador1, Jogador jogador2) {
+        Random random = new Random();
+        if (random.nextBoolean()) {
+            jogadorAtual = jogador1;
+        } else {
+            jogadorAtual = jogador2;
+        }
+    }
+
     public void comprarCarta() {
             if (!deck.isEmpty()) {
                 Carta carta = deck.remove(0);
@@ -54,7 +87,25 @@ abstract class Jogador {
                 /*Acaba o jogo */
             }
     }
-    public void adicionarCartaAoDeck(Cartas carta) {
+
+    public void mudarJogador(){
+        if (JogadorAtual == jogador1){
+            JogadorAtual = jogador2;
+        }else {
+            JogadorAtual = jogador1;
+        }
+        JogadorAtual = null;
+        this.turno += 1;
+    }
+
+    public void comprar(){
+        jogadorAtual.comprarCarta();
+    }
+    
+    public void comprarMãoInicial() {
+        for (int i = 0; i < 5; i++) {
+            jogador1.comprarCarta();
+            jogador2.comprarCarta();
+        }
     }
 }
-

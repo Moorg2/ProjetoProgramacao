@@ -1,7 +1,7 @@
 package ProjetoProgramacao;
 
 abstract class Criatura extends Cartas {
-
+	public int 
     public int dano;
     public int resist;
     public String habilidadeEspecial;
@@ -11,14 +11,24 @@ abstract class Criatura extends Cartas {
         this.dano = dano;
         this.resist= resist;
     }
-    public int ataque(int danoRecebido) {
+    public int getDanoCriatura() {
+        return this.dano;
+    }
+
+    public int ataque(int danoRecebido, int resist) {
         // Se o dano recebido for maior que a resistência, a criatura é destruída
-        if (danoRecebido >= resist) {
+        if (danoRecebidoCriatura() >= resist) {
             return 0; // Criatura destruída
         } else {
             return resist - danoRecebido; // Vida restante
         }
     }
+    
+    public int danoRecebidoCriatura(int dano, int resist) { //Criatura -> Criatura
+    	return danoRecebidoCriatura = resist - dano
+    }
+    
+
     public void aplicarHabilidade(){
         if (getHabilidade().equals(/* nome Habilidade base 1 */)){
             /*aplica Habilidade 1 */
