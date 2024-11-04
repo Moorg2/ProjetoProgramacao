@@ -22,9 +22,4 @@ public class Encantamento extends Cartas {
         }
 
         }
-    @Override
-    public void usar(Jogador jogadorAtivo) {
-        // Implementação para colocar o encantamento no campo
-        System.out.println(jogadorAtivo.nome + " jogou o encantamento: " + nome);
-    }
 }

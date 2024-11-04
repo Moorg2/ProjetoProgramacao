@@ -5,18 +5,26 @@ abstract class Cartas extends Exception {
     public String nome;
     public int custoMana;
 
-    public Cartas(String nomes, int custoMana) {
-        this.nomes = nomes;
+    public Cartas(String nome, int custoMana) {
+        this.nome = nome;
         this.custoMana = custoMana;
     }
     
+   
+    
+    public int getcustoMana(){
+        return this.custoMana;
+    }
+
    public void jogada() {
-	   
-	   if(getMana()< this.custoMana) {
-		   throw new ErroManaInsuficiente("Você não tem mana suficiente para jogar a carta"+ getNome())
-	   } else{
-		   return 0;
-		     }
+	   if(getcustoMana()< this.custoMana) {
+		   try {
+            throw new ManaInsuficienteException("Você não tem mana suficiente para jogar a carta"+ getNome());
+        } catch (ManaInsuficienteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+	   } 
    }
     
    public void setNome(String nome) {
@@ -26,5 +34,4 @@ abstract class Cartas extends Exception {
    public String getNome() {
        return this.nome;
    }
-    
 }

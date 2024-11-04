@@ -8,13 +8,7 @@ public class Feitico extends Cartas {
         super(nomes, custoMana);
         this.efeito = efeito;
     }
-    @Override
-    public void usar(Jogador jogadorAtivo) {
-        // Implementação do efeito do feitiço
-        System.out.println(jogadorAtivo.nome + " lançou o feitiço: " + nome);
-    }
-
-    public getEfeito(){
+    public String getEfeito(){
         return this.efeito;
     }
 

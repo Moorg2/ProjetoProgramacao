@@ -1,12 +1,11 @@
 package ProjetoProgramacao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 abstract class Jogador {
     String nome;
     public int vida;
-    public int manaInicial;
+    public int mana;
     public int turno = 0;
 
     ArrayList<Cartas> deck;
@@ -32,36 +31,20 @@ abstract class Jogador {
     
     public int danoVida(int dano, int vida) {
         // Se o dano recebido for maior que a resistência, a criatura é destruída
-        if (danoRecebido >= vida) {
+        if (dano >= vida) {
             return 0; // tem que fazer o jogo acabar
         } else {
-            return this.vida = vida - dano // Vida restante
+            return this.vida = vida - dano; // Vida restante
         }
     }
-    
-    public int getDanoCriatura() {
-        return this.dano;
-    }
-
-    
-    public int danoRecebidoJogador(int getDanoCriatura(), int vida) { //Criatura -> jogador//
-    	
-    	return danoRecebidoJogador = this.vida - getDanoCriatura()
-    		
-    }
-    
-    public int danoRecebidoCriatura(int dano, int resist) { //Criatura -> Criatura
-    	
-    	return danoRecebidoCriatura = resist - dano
-    }
-    
     
     //public int alvoEscolher() { //O Alvo a sofrer dano será escolhido dependendo se tiver cartas em jogo ou não, 
     							//se não tiver, chamar o metodo danoRecebidoJogador(); se tiver, usar o metodo danoRecebidoCriatura();
     	//if() {
     		//}
     	
-    }
+    
+
     public int getTurno(){
         return this.turno;
     }
@@ -69,23 +52,21 @@ abstract class Jogador {
     // Método para ganhar mana no início do turno
     public void ganharMana() {
         if (getTurno() == 0) {
-            this.manaInicial = 3;
+            mana = 3;
         } else {
-            this.mana = manaInicial + getTurno();
+            mana = this.mana + getTurno();
         }
-        if (this.mana > 10) {
+        if (mana > 10) {
             this.mana = 10;
         }
-    }        
+    }
+
     public void comprarCarta() {
             if (!deck.isEmpty()) {
-                Carta carta = deck.remove(0);
+                Cartas carta = deck.remove(0);
                 mao.add(carta);
             } else if(mao.isEmpty()){
                 /*Acaba o jogo */
             }
     }
-    public void adicionarCartaAoDeck(Cartas carta) {
-    }
 }
-
