@@ -16,7 +16,37 @@ public class JogoDeCartas {
         this.jogadorAtual = null;
         this.board = new ArrayList<Cartas>();
     }
+    
+    public void definirJogadorInicial(Jogador jogador1, Jogador jogador2) {
+        Random random = new Random();
+        if (random.nextBoolean()) {
+            jogadorAtual = jogador1;
+        } else {
+            jogadorAtual = jogador2;
+        }
+    }
+    
+    public void comprar(){
+        jogadorAtual.comprarCarta();
+    }
+    
+    public void comprarMãoInicial() {
+        for (int i = 0; i < 5; i++) {
+            jogador1.comprarCarta();
+            jogador2.comprarCarta();
+        }
+    }
 
+    public void mudarJogador(){
+        if (jogadorAtual == jogador1){
+            jogadorAtual = jogador2;
+        }else {
+            jogadorAtual = jogador1;
+        }
+        jogadorAtual = null;
+        this.turno += 1;
+    }
+    
     public void iniciar() {
         definirJogadorInicial();
         turnos();
@@ -36,6 +66,11 @@ public class JogoDeCartas {
         }
     }
     
+    public void jogarCarta(){
+        Cartas carta = mao.remove(carta);
+        jogada();
+        board.add(carta);
+    }
     public void statusInicial() {
     	comprarMãoInicial();
     	ganharMana();
@@ -43,11 +78,9 @@ public class JogoDeCartas {
     
     public static void main(String[] args) {
         
-        Jogador jogador1 = new Jogador("Jogador 1");
-        Jogador jogador2 = new Jogador("Jogador 2");
-
+        Jogador jogador1 = new Jogador("Jogador 1"){};
+        Jogador jogador2 = new Jogador("Jogador 2"){};
         JogoDeCartas jogo = new JogoDeCartas(jogador1, jogador2);
         jogo.iniciar();
-    }
     }
 }

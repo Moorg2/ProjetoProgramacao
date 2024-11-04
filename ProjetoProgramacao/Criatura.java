@@ -1,7 +1,6 @@
 package ProjetoProgramacao;
 
-abstract class Criatura extends Cartas {
-	public int 
+public class Criatura extends Cartas {
     public int dano;
     public int resist;
     public String habilidadeEspecial;
@@ -11,23 +10,23 @@ abstract class Criatura extends Cartas {
         this.dano = dano;
         this.resist= resist;
     }
-    public int getDanoCriatura() {
+    
+    public int getDano() {
         return this.dano;
     }
 
     public int ataque(int danoRecebido, int resist) {
         // Se o dano recebido for maior que a resistência, a criatura é destruída
-        if (danoRecebidoCriatura() >= resist) {
+        if (dano >= resist) {
             return 0; // Criatura destruída
         } else {
             return resist - danoRecebido; // Vida restante
         }
     }
     
-    public int danoRecebidoCriatura(int dano, int resist) { //Criatura -> Criatura
-    	return danoRecebidoCriatura = resist - dano
+    public String getHabilidade(){
+        return this.habilidadeEspecial;
     }
-    
 
     public void aplicarHabilidade(){
         if (getHabilidade().equals(/* nome Habilidade base 1 */)){
@@ -37,12 +36,5 @@ abstract class Criatura extends Cartas {
         } else if (getHabilidade().equals(/*nome Habilidade base 3 */)){
              /*aplica Habilidade 2 */
         }
-
-        }
-   
-    @Override
-    public void usar(Jogador jogadorAtivo) {
-        // Implementação para colocar a criatura no campo
-        System.out.println(jogadorAtivo.nome + " jogou a criatura: " + nome);
-    }
+        }   
 }
