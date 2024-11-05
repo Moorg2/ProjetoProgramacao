@@ -15,12 +15,14 @@ public class Criatura extends Cartas {
         return this.dano;
     }
 
-    public int ataque(int danoRecebido, int resist) {
+    public int ataque(int dano, int resist) {
         // Se o dano recebido for maior que a resistência, a criatura é destruída
         if (dano >= resist) {
             return 0; // Criatura destruída
+            board.remove(carta);
+            cemiterio.add(carta);
         } else {
-            return resist - danoRecebido; // Vida restante
+            return resist - dano; // Vida restante
         }
     }
     

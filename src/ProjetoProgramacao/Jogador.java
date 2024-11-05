@@ -29,11 +29,13 @@ abstract class Jogador {
         return vida;
     }
 
-    public int danoVida(int dano) {
-        vida = Math.max(vida - dano, 0);
-        return vida;
+    public int danoVida(int dano, int vida) {
+        if (dano >= vida) {
+            return 0; 
+        } else {
+            return this.vida = vida - dano; 
+        }
     }
-
     public int getTurno() {
         return turno;
     }

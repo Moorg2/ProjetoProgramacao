@@ -49,7 +49,7 @@ public class JogoDeCartas {
     }
 
     public void turnos() {
-        while (jogador1.getVida()>0 || jogador2.getVida()>0) {  
+        while (jogador1.getVida()>0 && jogador2.getVida()>0) {  
             if (turno == 0) {
                 statusInicial();
                 // Implementar lógica para jogar cartas
@@ -75,6 +75,16 @@ public class JogoDeCartas {
         comprarMaoInicial();
         jogador1.ganharMana();
         jogador2.ganharMana();
+    }
+   
+    public void escolherAlvo(Object alvo) {
+        if (alvo instanceof Jogador) {
+            Jogador jogadorAlvo = (Jogador) alvo;
+            Jogador.danoVida();
+        } else if (alvo instanceof Criatura) {
+            Criatura criaturaAlvo = (Criatura) alvo;
+            Criatura.ataque();
+        }
     }
 
     public static void main(String[] args) {

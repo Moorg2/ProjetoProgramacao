@@ -10,8 +10,6 @@ abstract class Cartas extends Exception {
         this.custoMana = custoMana;
     }
     
-   
-    
     public int getcustoMana(){
         return this.custoMana;
     }
@@ -21,7 +19,6 @@ abstract class Cartas extends Exception {
 		   try {
             throw new ManaInsuficienteException("Você não tem mana suficiente para jogar a carta"+ getNome());
         } catch (ManaInsuficienteException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 	   } 
