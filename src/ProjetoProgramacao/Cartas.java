@@ -1,4 +1,4 @@
-package ProjetoProgramacao;
+package src.ProjetoProgramacao;
 
 abstract class Cartas extends Exception {
 

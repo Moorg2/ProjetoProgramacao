@@ -1,7 +1,10 @@
-package ProjetoProgramacao;
+package src.ProjetoProgramacao;
 
 public class CriarHabilidades extends Habilidade {
-    
+    public CriarHabilidades(String nomes, int custoMana, int dano, int resist, String habilidadeEspecial) {
+		super(nomes, custoMana, dano, resist, habilidadeEspecial);
+		
+	}
     public void aplicarHabilidade(String habilidade) {
         switch (habilidade.toLowerCase()) {
             case "telepatia":

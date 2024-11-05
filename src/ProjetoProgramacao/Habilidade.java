@@ -1,4 +1,4 @@
-package ProjetoProgramacao;
+package src.ProjetoProgramacao;
 
 public class Habilidade extends Criatura{
 
